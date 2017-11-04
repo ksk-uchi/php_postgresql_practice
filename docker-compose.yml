@@ -1,0 +1,17 @@
+version: '2'
+services:
+    mainapp:
+        build:
+            context: ./MainApp/
+        volumes:
+            - ./MainApp/src:/var/www/html
+        ports:
+            - 80:80
+    postgres:
+        build:
+            context: ./Postgres
+        volumes:
+            - ./Postgres/init.d:/docker-entrypoint-initdb.d
+        ports:
+            - 5432:5432
+
