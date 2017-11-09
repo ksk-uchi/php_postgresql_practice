@@ -1,6 +1,6 @@
 FROM php:7.1-apache
 
-EXPOSE 80
+EXPOSE 8082
 
 RUN set -ex apk --no-cache add postgresql-dev libpq-dev
 RUN apt-get update && apt-get install -y libpq-dev
@@ -34,4 +34,9 @@ COPY ./config/laravelapp_apache2_ports.conf /etc/apache2/ports.conf
 WORKDIR /etc/apache2/mods-enabled
 RUN ln -s ../mods-available/rewrite.load rewrite.load
 
-WORKDIR /var/www/html
+COPY ./blog /var/www/html/blog
+WORKDIR /var/www/html/blog
+RUN composer install
+
+RUN .env.example .env
+RUN php artisan key:generate
