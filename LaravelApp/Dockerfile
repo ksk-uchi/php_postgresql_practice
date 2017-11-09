@@ -34,9 +34,9 @@ COPY ./config/laravelapp_apache2_ports.conf /etc/apache2/ports.conf
 WORKDIR /etc/apache2/mods-enabled
 RUN ln -s ../mods-available/rewrite.load rewrite.load
 
-COPY ./blog /var/www/html/blog
+COPY ./src/blog /var/www/html/blog
 WORKDIR /var/www/html/blog
 RUN composer install
 
-RUN .env.example .env
+COPY ./src/blog/.env.example .env
 RUN php artisan key:generate
