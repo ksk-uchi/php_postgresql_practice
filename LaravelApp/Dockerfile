@@ -34,9 +34,9 @@ COPY ./config/laravelapp_apache2_ports.conf /etc/apache2/ports.conf
 WORKDIR /etc/apache2/mods-enabled
 RUN ln -s ../mods-available/rewrite.load rewrite.load
 
-COPY ./src/blog /var/www/html/blog
 WORKDIR /var/www/html/blog
-RUN composer install
 
+## After the container is built do below steps.
+# composer install
 # cp ./src/blog/.env.example ./src/blog/.env
 # php artisan key:generate
