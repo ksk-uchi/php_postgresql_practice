@@ -38,5 +38,5 @@ COPY ./src/blog /var/www/html/blog
 WORKDIR /var/www/html/blog
 RUN composer install
 
-COPY ./src/blog/.env.example .env
-RUN php artisan key:generate
+# cp ./src/blog/.env.example ./src/blog/.env
+# php artisan key:generate
