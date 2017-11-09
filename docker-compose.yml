@@ -1,12 +1,12 @@
 version: '2'
 services:
-    mainapp:
+    phppra:
         build:
-            context: ./MainApp/
+            context: ./PhpPra/
         volumes:
-            - ./MainApp/src:/var/www/html
+            - ./PhpPra/src:/var/www/html
         ports:
-            - 80:80
+            - 8081:8081
     postgres:
         build:
             context: ./Postgres
@@ -14,4 +14,10 @@ services:
             - ./Postgres/init.d:/docker-entrypoint-initdb.d
         ports:
             - 5432:5432
-
+    laravelapp:
+        build:
+            context: ./LaravelApp/
+        volumes:
+            - ./LaravelApp/src:/var/www/html
+        ports:
+            - 8082:8082
