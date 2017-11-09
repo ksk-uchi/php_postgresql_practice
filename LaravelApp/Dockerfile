@@ -25,10 +25,6 @@ COPY ./config/php.ini /usr/local/etc/php/
 RUN composer global require "laravel/installer"
 ENV PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.composer/vendor/bin
 
-# laravel new blog
-# chmod 777 -R blog/storage
-# chmod 777 -R blog/bootstrap/cache
-
 COPY ./config/laravelapp_apache2.conf /etc/apache2/sites-available/000-default.conf
 COPY ./config/laravelapp_apache2_ports.conf /etc/apache2/ports.conf
 WORKDIR /etc/apache2/mods-enabled
@@ -40,3 +36,5 @@ WORKDIR /var/www/html/blog
 # composer install
 # cp ./src/blog/.env.example ./src/blog/.env
 # php artisan key:generate
+# chmod 777 -R blog/storage
+# chmod 777 -R blog/bootstrap/cache
