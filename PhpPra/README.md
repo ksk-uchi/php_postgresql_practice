@@ -4,7 +4,7 @@
 
 1. `git clone (this repo)` and move into it.
 1. `docker-compose up --build -d`
-    1. If it failed then maybe you want to check the phase installing composer in `PhpPra/Dockerfile` or `LaravelApp/Dockerfile`
+    1. If it failed then maybe you want to check the phase installing composer in `PhpPra/Dockerfile`, `LaravelApp/Dockerfile` or `CodeIgniterApp/Dockerfile`
 1. `curl http://localhost:8081`
 
 ## To check data
