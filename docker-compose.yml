@@ -21,3 +21,10 @@ services:
             - ./LaravelApp/src:/var/www/html
         ports:
             - 8082:8082
+    codeigniterapp:
+        build:
+            context: ./CodeIgniterApp/
+        volumes:
+            - ./CodeIgniterApp/src:/var/www/html
+        ports:
+            - 8083:8083
