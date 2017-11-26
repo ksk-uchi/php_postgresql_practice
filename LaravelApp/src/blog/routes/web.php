@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,12 +11,4 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function (Request $req) {
-    error_log($req);
-    return view('welcome');
-});
-
-Route::get('users', function () {
-    error_log('here');
-    return 'Users!!!!';
-});
+Route::get('users', 'Web\UserController@get_user');
